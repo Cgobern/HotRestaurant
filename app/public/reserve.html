@@ -13,10 +13,11 @@
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1>Star Wars Express</h1>
-			<h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+			<h1>Make your reservation</h1>
+			<h3></h3>
 			<hr>
-			<a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> View Characters</button></a>
+			<a href="/table"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> View Table</button></a>
+			<a href="/home"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Home</button></a>
 		</div>
 		<div class="row">
 
@@ -24,7 +25,7 @@
 
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title"><strong>Add Characters</strong></h3>
+						<h3 class="panel-title"><strong>Table Reservation</strong></h3>
 					</div>
 					<div class="panel-body">
 						<form action="" method="POST" role="form">
@@ -35,47 +36,47 @@
 							</div>
 
 							<div class="form-group">
-								<label for="">Role</label>
+								<label for="">Phone number</label>
 								<input type="text" class="form-control" id="role" placeholder="">
 							</div>
 
 							<div class="form-group">
-								<label for="">Age</label>
+								<label for="">Email</label>
 								<input type="text" class="form-control" id="age" placeholder="">
 							</div>
 
 							<div class="form-group">
-								<label for="">Force Points</label>
+								<label for="">Unique ID</label>
 								<input type="text" class="form-control" id="forcepoints" placeholder="">
 							</div>
 
 						</form>
 						<br>
 						<div class="text-right">
-							<button type="submit" class="btn btn-primary btn-md" id="addBtn"></span><span class="glyphicon glyphicon-fire"></span> Add to the Force</button>
+							<button type="submit" class="btn btn-primary btn-md" id="addBtn"></span><span class="glyphicon glyphicon-fire"></span> Submit</button>
 						</div>
 					</div>
 				</div>
 
-        </div>
+			</div>
 		</div>
 	</div>
 
 	<script type="text/javascript">
 		// Question: What does this code do?
 		$('#addBtn').on('click', function () {
-			var newCharacter = {
+			var newReservation = {
 				name: $('#name').val().trim(),
-				role: $('#role').val().trim(),
-				age: $('#age').val().trim(),
-				forcePoints: $('#forcepoints').val().trim()
+				phoneNumber: $('#role').val().trim(),
+				email: $('#age').val().trim(),
+				UniqueId: $('#forcepoints').val().trim()
 			};
 
 			// Question: What does this code do??
-			$.post('http://localhost:3000/api/new', newCharacter)
+			$.post('http://localhost:3003/home/newtable', newReservation)
 				.done(function (data) {
 					console.log(data);
-					alert('Adding character...');
+					alert('Reservating a Table...');
 				});
 
 			return false;
